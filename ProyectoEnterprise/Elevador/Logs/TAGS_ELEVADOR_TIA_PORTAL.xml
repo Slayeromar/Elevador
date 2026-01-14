@@ -1,7 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<?xml-stylesheet type='text/xsl' href='MassDataHandlerLogFile.xsl'?>
-<LogFile titleName="TAGS_ELEVADOR_TIA_PORTAL.xml" projectName="C:\Users\Omar Zambrano\Documents\ProyectoEnterprise\TAGS_ELEVADOR_TIA_PORTAL.xlsx" typeText="Type" messageText="Message" timeText="Time">
-  <LogEntry type="Warning" dateTime="11:25:43 AM">
-    <Message>The version ID is missing in the XLSX file. It is assumed that this is the latest version.</Message>
-  </LogEntry>
-</LogFile>
