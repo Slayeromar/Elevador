@@ -1,0 +1,298 @@
+Actúa como un Arquitecto de Software Industrial Enterprise, especializado en Automatización, Cloud-Native Systems, Kubernetes, Event-Driven Architectures, HMIs Web profesionales, IA industrial y Seguridad Zero-Trust, con experiencia en proyectos equivalentes a los presentados en el CES 2026.
+
+🎯 Objetivo del proyecto
+
+Diseñar e implementar un sistema de automatización industrial moderno, completamente funcional pero de alcance pequeño, que integre todas las capas de una arquitectura Enterprise, manteniendo simplicidad operativa pero máxima corrección arquitectónica.
+
+El sistema debe simular una línea industrial simple (por ejemplo: banda transportadora o celda básica), pero diseñada como si fuera parte de una plataforma industrial escalable, no como un demo.
+
+🏭 Caso de uso industrial base
+
+Una banda transportadora automatizada, controlada por un PLC, que:
+
+Arranca y se detiene
+
+Cambia de velocidad
+
+Genera alarmas
+
+Produce eventos
+
+Registra históricos
+
+Permite visualización HMI
+
+Analiza datos con IA
+
+Cumple seguridad Enterprise
+
+🧱 Arquitectura obligatoria (NO desviarse)
+
+El sistema DEBE seguir esta arquitectura:
+
+PLC (OT)
+ ↓
+PLC Service (Backend Python)
+ ↓
+Event Bus (Event-Driven)
+ ↓
+Servicios desacoplados
+ ↓
+Data Layer / Historian
+ ↓
+IA (Vertex AI o equivalente)
+ ↓
+HMI Web Stateless
+
+
+Toda la arquitectura debe ejecutarse bajo:
+
+Contenedores
+
+Kubernetes
+
+Seguridad Zero Trust
+
+🧩 Componentes y herramientas obligatorias
+1️⃣ PLC / OT Layer
+
+Función:
+
+Simular control industrial real
+
+Opciones:
+
+PLC Siemens (TIA Portal + PLCSIM)
+
+O simulación lógica si no hay PLC físico
+
+Requerimientos:
+
+Tags claros (Start, Stop, Speed, Alarm)
+
+Lógica simple pero realista
+
+Estados bien definidos (RUN, STOP, FAULT)
+
+📌 Si se requiere, la IA debe indicar explícitamente cómo crear este proyecto en TIA Portal y qué tags usar.
+
+2️⃣ Backend Antigravity-Ready (Python)
+
+Herramienta:
+
+Python 3.10+
+
+FastAPI
+
+Reglas:
+
+NO monolitos
+
+NO lógica de UI
+
+Un servicio = una responsabilidad
+
+Servicios mínimos:
+
+plc-service
+
+alarm-service
+
+historian-service
+
+auth-service (simplificado)
+
+3️⃣ Kubernetes
+
+Herramienta:
+
+Kubernetes local (k3s / kind / minikube)
+
+Opcional: GKE (conceptual)
+
+Uso obligatorio:
+
+Cada servicio como Deployment
+
+ConfigMaps y Secrets
+
+Services internos
+
+Namespaces
+
+Objetivo didáctico:
+
+Auto-restart
+
+Escalabilidad
+
+Aislamiento
+
+4️⃣ Event-Driven / Pub-Sub
+
+Herramienta:
+
+MQTT (Mosquitto) o Google Pub/Sub (conceptual)
+
+Reglas:
+
+Ningún servicio se comunica directamente
+
+Todo mediante eventos
+
+Eventos con nombre semántico
+
+Ejemplos de eventos:
+
+machine.state.changed
+
+alarm.triggered
+
+speed.updated
+
+cycle.completed
+
+5️⃣ Data Layer / Historian
+
+Herramientas:
+
+SQLite (inicio)
+
+PostgreSQL (Enterprise mentalidad)
+
+Uso:
+
+Guardar eventos
+
+Guardar estados
+
+Base para IA
+
+6️⃣ Datos + IA (Vertex AI conceptual)
+
+Herramienta:
+
+Vertex AI (conceptual)
+
+Alternativa local: modelo simple (scikit-learn)
+
+Función:
+
+Detección de anomalías
+
+Predicción simple de paro
+
+⚠️ La IA NO controla el PLC
+⚠️ Solo recomienda o genera eventos
+
+7️⃣ HMI Web Profesional (Stateless)
+
+Herramientas:
+
+HTML + CSS + JavaScript
+
+Framework recomendado: Vue / React
+
+Reglas:
+
+Sin lógica de negocio
+
+Sin estado persistente
+
+Solo REST + WebSocket
+
+Pantallas mínimas:
+
+Estado de máquina
+
+Botones Start/Stop
+
+Velocidad
+
+Alarmas
+
+Tendencia simple
+
+8️⃣ Seguridad Enterprise (OBLIGATORIA)
+
+Principios:
+
+Zero Trust
+
+Autenticación
+
+Autorización
+
+Auditoría
+
+Implementación mínima:
+
+JWT
+
+Roles (viewer, operator, admin)
+
+HTTPS (conceptual)
+
+Secrets en Kubernetes
+
+🔐 Reglas globales de construcción
+
+NO usar variables globales compartidas
+
+NO acoplar servicios
+
+NO lógica en la HMI
+
+NO acceso directo al PLC desde UI
+
+NO credenciales hardcodeadas
+
+TODO debe ser auditable
+
+TODO debe ser escalable
+
+📐 Entregables esperados
+
+La IA debe producir:
+
+Diagrama completo de arquitectura
+
+Estructura de carpetas
+
+Descripción clara de cada servicio
+
+Flujo de eventos
+
+Explicación de seguridad
+
+Pasos de despliegue
+
+Flujo de datos hacia IA
+
+Interacción HMI ↔ Backend
+
+Recomendaciones de evolución futura
+
+🚀 Visión futura (CES 2026)
+
+El sistema debe quedar listo para evolucionar hacia:
+
+Multi-planta
+
+Digital Twin
+
+Optimización automática
+
+SaaS industrial
+
+Monitoreo remoto
+
+Integración ERP / MES
+
+ Mentalidad obligatoria
+
+Este proyecto no es un demo, es una versión mínima de una plataforma industrial Enterprise.
+
+Cierre del prompt
+
+Diseña este sistema paso a paso, justificando cada decisión técnica, manteniendo simplicidad operativa pero arquitectura de nivel Enterprise, como si fuera presentado en una demo técnica del CES 2026

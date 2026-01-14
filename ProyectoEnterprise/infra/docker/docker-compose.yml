@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+
+  plc-service:
+    build: ../../services/plc-service
+    container_name: plc-service
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mosquitto
+    environment:
+      - MQTT_BROKER=mosquitto
+      - MQTT_PORT=1883
+
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: enterprise_secret
+      POSTGRES_DB: industrial_db
+    ports:
+      - "5432:5432"
+
+  historian:
+    build: ../../services/historian-service
+    container_name: historian
+    depends_on:
+      - mosquitto
+      - postgres
+    environment:
+      - MQTT_BROKER=mosquitto
+      - DB_HOST=postgres
+      - DB_NAME=industrial_db
+      - DB_USER=admin
+      - DB_PASS=enterprise_secret
+
+  alarm-service:
+    build: ../../services/alarm-service
+    container_name: alarm-service
+    depends_on:
+      - mosquitto
+    environment:
+      - MQTT_BROKER=mosquitto
+
+  auth-service:
+    build: ../../services/auth-service
+    container_name: auth-service
+    ports:
+      - "8001:8001"
