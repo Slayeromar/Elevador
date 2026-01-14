@@ -1,0 +1,218 @@
+1768349397: mosquitto version 2.0.22 starting
+1768349397: Config loaded from /mosquitto/config/mosquitto.conf.
+1768349397: Opening ipv4 listen socket on port 1883.
+1768349397: Opening ipv6 listen socket on port 1883.
+1768349397: mosquitto version 2.0.22 running
+1768349399: New connection from 172.18.0.5:58635 on port 1883.
+1768349399: New client connected from 172.18.0.5:58635 as auto-248FF6B0-328E-9570-77B8-C5BD0ADC867B (p2, c1, k60).
+1768349494: Client auto-248FF6B0-328E-9570-77B8-C5BD0ADC867B closed its connection.
+1768349497: New connection from 172.18.0.2:36923 on port 1883.
+1768349497: New client connected from 172.18.0.2:36923 as auto-F828E3A9-15ED-B464-188D-5991D24B808F (p2, c1, k60).
+1768349537: Client auto-F828E3A9-15ED-B464-188D-5991D24B808F closed its connection.
+1768349540: New connection from 172.18.0.2:49087 on port 1883.
+1768349540: New client connected from 172.18.0.2:49087 as auto-1B222441-74EB-85E5-D012-B851B2DE1A72 (p2, c1, k60).
+1768349757: Client auto-1B222441-74EB-85E5-D012-B851B2DE1A72 closed its connection.
+1768349760: New connection from 172.18.0.2:45999 on port 1883.
+1768349760: New client connected from 172.18.0.2:45999 as auto-8F1314A5-CB7A-05A4-4E43-BE31FA1EAF0D (p2, c1, k60).
+1768404829: mosquitto version 2.0.22 starting
+1768404829: Config loaded from /mosquitto/config/mosquitto.conf.
+1768404829: Opening ipv4 listen socket on port 1883.
+1768404829: Opening ipv6 listen socket on port 1883.
+1768404829: mosquitto version 2.0.22 running
+1768404831: New connection from 172.18.0.5:58799 on port 1883.
+1768404831: New client connected from 172.18.0.5:58799 as auto-68F118CF-C30E-E6A3-35E0-B1769320EF2A (p2, c1, k60).
+1768404929: Client auto-68F118CF-C30E-E6A3-35E0-B1769320EF2A closed its connection.
+1768404930: mosquitto version 2.0.22 terminating
+1768404930: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768405234: mosquitto version 2.0.22 starting
+1768405234: Config loaded from /mosquitto/config/mosquitto.conf.
+1768405234: Opening ipv4 listen socket on port 1883.
+1768405234: Opening ipv6 listen socket on port 1883.
+1768405234: mosquitto version 2.0.22 running
+1768405236: New connection from 172.18.0.5:39091 on port 1883.
+1768405236: New client connected from 172.18.0.5:39091 as auto-F301AAF5-A641-9C6D-EE9E-A5488423C2D7 (p2, c1, k60).
+1768405613: Client auto-F301AAF5-A641-9C6D-EE9E-A5488423C2D7 closed its connection.
+1768405616: New connection from 172.18.0.4:42513 on port 1883.
+1768405616: New client connected from 172.18.0.4:42513 as auto-48E24C08-9A23-3725-CAD0-A5D3CE700F28 (p2, c1, k60).
+1768405616: New connection from 172.18.0.5:47047 on port 1883.
+1768405616: New client connected from 172.18.0.5:47047 as HISTORIAN_SERVICE (p2, c1, k60).
+1768405617: New connection from 172.18.0.6:36689 on port 1883.
+1768405617: New client connected from 172.18.0.6:36689 as PLC_SERVICE_GATEWAY (p2, c1, k60).
+1768405617: New connection from 172.18.0.7:54385 on port 1883.
+1768405617: New client connected from 172.18.0.7:54385 as AI_PREDICTIVE_ENGINE (p2, c1, k60).
+1768405695: Client AI_PREDICTIVE_ENGINE closed its connection.
+1768405695: Client PLC_SERVICE_GATEWAY closed its connection.
+1768405696: Client HISTORIAN_SERVICE closed its connection.
+1768405696: Client auto-48E24C08-9A23-3725-CAD0-A5D3CE700F28 closed its connection.
+1768405697: mosquitto version 2.0.22 terminating
+1768405697: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768406492: mosquitto version 2.0.22 starting
+1768406492: Config loaded from /mosquitto/config/mosquitto.conf.
+1768406492: Opening ipv4 listen socket on port 1883.
+1768406492: Opening ipv6 listen socket on port 1883.
+1768406492: mosquitto version 2.0.22 running
+1768406494: New connection from 172.18.0.5:56171 on port 1883.
+1768406494: New client connected from 172.18.0.5:56171 as auto-32D64671-CC0F-2788-EE2E-FC296CBC5AE2 (p2, c1, k60).
+1768406495: New connection from 172.18.0.4:53129 on port 1883.
+1768406495: New client connected from 172.18.0.4:53129 as HISTORIAN_SERVICE (p2, c1, k60).
+1768406495: New connection from 172.18.0.7:59709 on port 1883.
+1768406495: New client connected from 172.18.0.7:59709 as AI_PREDICTIVE_ENGINE (p2, c1, k60).
+1768406495: New connection from 172.18.0.6:39773 on port 1883.
+1768406495: New client connected from 172.18.0.6:39773 as PLC_SERVICE_GATEWAY (p2, c1, k60).
+1768407089: Client auto-32D64671-CC0F-2788-EE2E-FC296CBC5AE2 closed its connection.
+1768407089: Client HISTORIAN_SERVICE closed its connection.
+1768407089: Client PLC_SERVICE_GATEWAY closed its connection.
+1768407091: Client AI_PREDICTIVE_ENGINE closed its connection.
+1768407097: New connection from 172.18.0.4:57061 on port 1883.
+1768407098: New client connected from 172.18.0.4:57061 as HISTORIAN_SERVICE (p2, c1, k60).
+1768407098: New connection from 172.18.0.5:57529 on port 1883.
+1768407098: New client connected from 172.18.0.5:57529 as auto-208DDBE3-902D-2774-6227-9E57EC1CFE0E (p2, c1, k60).
+1768407098: New connection from 172.18.0.2:59093 on port 1883.
+1768407098: New client connected from 172.18.0.2:59093 as PLC_SERVICE_GATEWAY (p2, c1, k60).
+1768407098: New connection from 172.18.0.7:37639 on port 1883.
+1768407098: New client connected from 172.18.0.7:37639 as AI_PREDICTIVE_ENGINE (p2, c1, k60).
+1768407099: New connection from 172.18.0.9:52655 on port 1883.
+1768407099: New client connected from 172.18.0.9:52655 as GATEWAY_WS_BRIDGE (p2, c1, k60).
+1768407150: Client GATEWAY_WS_BRIDGE closed its connection.
+1768407151: Client auto-208DDBE3-902D-2774-6227-9E57EC1CFE0E disconnected.
+1768407152: Client PLC_SERVICE_GATEWAY closed its connection.
+1768407152: Client AI_PREDICTIVE_ENGINE closed its connection.
+1768407153: Client HISTORIAN_SERVICE closed its connection.
+1768407153: mosquitto version 2.0.22 terminating
+1768407153: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768407164: mosquitto version 2.0.22 starting
+1768407164: Config loaded from /mosquitto/config/mosquitto.conf.
+1768407164: Opening ipv4 listen socket on port 1883.
+1768407164: Opening ipv6 listen socket on port 1883.
+1768407164: mosquitto version 2.0.22 running
+1768407166: New connection from 172.18.0.5:51933 on port 1883.
+1768407166: New client connected from 172.18.0.5:51933 as auto-4E0CAB83-34A6-F3B1-DFA5-1F97EA3860BA (p2, c1, k60).
+1768407166: New connection from 172.18.0.6:58999 on port 1883.
+1768407166: New client connected from 172.18.0.6:58999 as PLC_SERVICE_GATEWAY (p2, c1, k60).
+1768407166: New connection from 172.18.0.4:36335 on port 1883.
+1768407166: New client connected from 172.18.0.4:36335 as HISTORIAN_SERVICE (p2, c1, k60).
+1768407167: New connection from 172.18.0.7:54681 on port 1883.
+1768407167: New client connected from 172.18.0.7:54681 as AI_PREDICTIVE_ENGINE (p2, c1, k60).
+1768407168: New connection from 172.18.0.9:52903 on port 1883.
+1768407168: New client connected from 172.18.0.9:52903 as GATEWAY_WS_BRIDGE (p2, c1, k60).
+1768407354: Client GATEWAY_WS_BRIDGE closed its connection.
+1768407355: Client auto-4E0CAB83-34A6-F3B1-DFA5-1F97EA3860BA disconnected.
+1768407355: Client AI_PREDICTIVE_ENGINE closed its connection.
+1768407356: Client PLC_SERVICE_GATEWAY closed its connection.
+1768407357: Client HISTORIAN_SERVICE closed its connection.
+1768407358: mosquitto version 2.0.22 terminating
+1768407358: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768407649: mosquitto version 2.0.22 starting
+1768407649: Config loaded from /mosquitto/config/mosquitto.conf.
+1768407649: Opening ipv4 listen socket on port 1883.
+1768407649: Opening ipv6 listen socket on port 1883.
+1768407649: mosquitto version 2.0.22 running
+1768407651: New connection from 172.18.0.5:53481 on port 1883.
+1768407651: New client connected from 172.18.0.5:53481 as auto-538FD7A2-804F-0EF1-1BCE-997C48D67798 (p2, c1, k60).
+1768407651: New connection from 172.18.0.6:44179 on port 1883.
+1768407651: New client connected from 172.18.0.6:44179 as PLC_SERVICE_GATEWAY (p2, c1, k60).
+1768407651: New connection from 172.18.0.4:52081 on port 1883.
+1768407651: New client connected from 172.18.0.4:52081 as HISTORIAN_SERVICE (p2, c1, k60).
+1768407653: New connection from 172.18.0.7:36787 on port 1883.
+1768407653: New client connected from 172.18.0.7:36787 as AI_PREDICTIVE_ENGINE (p2, c1, k60).
+1768407653: New connection from 172.18.0.9:59961 on port 1883.
+1768407653: New client connected from 172.18.0.9:59961 as GATEWAY_WS_BRIDGE (p2, c1, k60).
+1768407894: Client auto-538FD7A2-804F-0EF1-1BCE-997C48D67798 disconnected.
+1768407895: Client PLC_SERVICE_GATEWAY closed its connection.
+1768407895: Client HISTORIAN_SERVICE closed its connection.
+1768407897: Client AI_PREDICTIVE_ENGINE closed its connection.
+1768407899: Client GATEWAY_WS_BRIDGE closed its connection.
+1768407903: New connection from 172.18.0.2:50527 on port 1883.
+1768407903: New client connected from 172.18.0.2:50527 as PLC_SERVICE_GATEWAY (p2, c1, k60).
+1768407903: New connection from 172.18.0.5:34237 on port 1883.
+1768407903: New client connected from 172.18.0.5:34237 as auto-5D46D4D7-F89E-A6BF-7B70-553DAFCE591E (p2, c1, k60).
+1768407904: New connection from 172.18.0.4:36499 on port 1883.
+1768407904: New client connected from 172.18.0.4:36499 as HISTORIAN_SERVICE (p2, c1, k60).
+1768407905: New connection from 172.18.0.7:39815 on port 1883.
+1768407905: New client connected from 172.18.0.7:39815 as AI_PREDICTIVE_ENGINE (p2, c1, k60).
+1768407906: New connection from 172.18.0.9:51801 on port 1883.
+1768407906: New client connected from 172.18.0.9:51801 as GATEWAY_WS_BRIDGE (p2, c1, k60).
+1768409404: Client GATEWAY_WS_BRIDGE closed its connection.
+1768409405: Client auto-5D46D4D7-F89E-A6BF-7B70-553DAFCE591E disconnected.
+1768409406: Client AI_PREDICTIVE_ENGINE closed its connection.
+1768409406: Client PLC_SERVICE_GATEWAY closed its connection.
+1768409408: Client HISTORIAN_SERVICE closed its connection.
+1768409408: mosquitto version 2.0.22 terminating
+1768409408: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768409419: mosquitto version 2.0.22 starting
+1768409419: Config loaded from /mosquitto/config/mosquitto.conf.
+1768409419: Opening ipv4 listen socket on port 1883.
+1768409419: Opening ipv6 listen socket on port 1883.
+1768409419: mosquitto version 2.0.22 running
+1768409421: New connection from 172.18.0.4:38319 on port 1883.
+1768409421: New client connected from 172.18.0.4:38319 as PLC_SERVICE_GATEWAY (p2, c1, k60).
+1768409421: New connection from 172.18.0.5:55811 on port 1883.
+1768409421: New client connected from 172.18.0.5:55811 as auto-77F25203-2219-7D05-FC25-6167645EBCAE (p2, c1, k60).
+1768409421: New connection from 172.18.0.6:54699 on port 1883.
+1768409421: New client connected from 172.18.0.6:54699 as HISTORIAN_SERVICE (p2, c1, k60).
+1768409422: New connection from 172.18.0.8:45339 on port 1883.
+1768409422: New client connected from 172.18.0.8:45339 as AI_PREDICTIVE_ENGINE (p2, c1, k60).
+1768409423: New connection from 172.18.0.9:37207 on port 1883.
+1768409423: New client connected from 172.18.0.9:37207 as GATEWAY_WS_BRIDGE (p2, c1, k60).
+1768411219: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768413020: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768413270: Client auto-77F25203-2219-7D05-FC25-6167645EBCAE disconnected.
+1768413270: Client PLC_SERVICE_GATEWAY closed its connection.
+1768413271: Client HISTORIAN_SERVICE closed its connection.
+1768413274: Client AI_PREDICTIVE_ENGINE closed its connection.
+1768413276: Client GATEWAY_WS_BRIDGE closed its connection.
+1768413285: New connection from 172.18.0.4:55813 on port 1883.
+1768413285: New client connected from 172.18.0.4:55813 as PLC_SERVICE_GATEWAY (p2, c1, k60).
+1768413285: New connection from 172.18.0.2:59639 on port 1883.
+1768413285: New client connected from 172.18.0.2:59639 as auto-9ECEEE87-EB4A-AA07-C7DF-5E53DDED16DB (p2, c1, k60).
+1768413286: New connection from 172.18.0.5:55369 on port 1883.
+1768413286: New client connected from 172.18.0.5:55369 as HISTORIAN_SERVICE (p2, c1, k60).
+1768413286: New connection from 172.18.0.8:37913 on port 1883.
+1768413286: New client connected from 172.18.0.8:37913 as AI_PREDICTIVE_ENGINE (p2, c1, k60).
+1768413287: New connection from 172.18.0.9:47945 on port 1883.
+1768413287: New client connected from 172.18.0.9:47945 as GATEWAY_WS_BRIDGE (p2, c1, k60).
+1768413508: Client GATEWAY_WS_BRIDGE closed its connection.
+1768413510: Client auto-9ECEEE87-EB4A-AA07-C7DF-5E53DDED16DB disconnected.
+1768413511: Client PLC_SERVICE_GATEWAY closed its connection.
+1768413511: Client AI_PREDICTIVE_ENGINE closed its connection.
+1768413513: Client HISTORIAN_SERVICE closed its connection.
+1768413514: mosquitto version 2.0.22 terminating
+1768413514: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768413810: mosquitto version 2.0.22 starting
+1768413810: Config loaded from /mosquitto/config/mosquitto.conf.
+1768413810: Opening ipv4 listen socket on port 1883.
+1768413810: Opening ipv6 listen socket on port 1883.
+1768413810: mosquitto version 2.0.22 running
+1768413813: New connection from 172.18.0.5:49685 on port 1883.
+1768413813: New client connected from 172.18.0.5:49685 as auto-AC17E81C-0CC7-28D9-156F-98E1A9D0F1C2 (p2, c1, k60).
+1768413813: New connection from 172.18.0.4:38167 on port 1883.
+1768413813: New client connected from 172.18.0.4:38167 as PLC_SERVICE_GATEWAY (p2, c1, k60).
+1768413813: New connection from 172.18.0.6:45031 on port 1883.
+1768413813: New client connected from 172.18.0.6:45031 as HISTORIAN_SERVICE (p2, c1, k60).
+1768413814: New connection from 172.18.0.7:60583 on port 1883.
+1768413814: New client connected from 172.18.0.7:60583 as AI_PREDICTIVE_ENGINE (p2, c1, k60).
+1768413815: New connection from 172.18.0.9:45907 on port 1883.
+1768413815: New client connected from 172.18.0.9:45907 as GATEWAY_WS_BRIDGE (p2, c1, k60).
+1768415610: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768415921: Client GATEWAY_WS_BRIDGE closed its connection.
+1768415922: Client auto-AC17E81C-0CC7-28D9-156F-98E1A9D0F1C2 disconnected.
+1768415923: Client AI_PREDICTIVE_ENGINE closed its connection.
+1768415923: Client PLC_SERVICE_GATEWAY closed its connection.
+1768415924: Client HISTORIAN_SERVICE closed its connection.
+1768415925: mosquitto version 2.0.22 terminating
+1768415925: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768415936: mosquitto version 2.0.22 starting
+1768415936: Config loaded from /mosquitto/config/mosquitto.conf.
+1768415936: Opening ipv4 listen socket on port 1883.
+1768415936: Opening ipv6 listen socket on port 1883.
+1768415936: mosquitto version 2.0.22 running
+1768415938: New connection from 172.18.0.5:53847 on port 1883.
+1768415938: New connection from 172.18.0.4:48575 on port 1883.
+1768415938: New client connected from 172.18.0.5:53847 as auto-1B65EB78-31B6-9345-2BFC-1066EDF12283 (p2, c1, k60).
+1768415938: New client connected from 172.18.0.4:48575 as HISTORIAN_SERVICE (p2, c1, k60).
+1768415939: New connection from 172.18.0.6:52887 on port 1883.
+1768415939: New client connected from 172.18.0.6:52887 as PLC_SERVICE_GATEWAY (p2, c1, k60).
+1768415939: New connection from 172.18.0.7:44165 on port 1883.
+1768415939: New client connected from 172.18.0.7:44165 as AI_PREDICTIVE_ENGINE (p2, c1, k60).
+1768415940: New connection from 172.18.0.9:57647 on port 1883.
+1768415940: New client connected from 172.18.0.9:57647 as GATEWAY_WS_BRIDGE (p2, c1, k60).

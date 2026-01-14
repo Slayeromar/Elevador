@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Elevator Control v2.5</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Pantalla de Inicio de Sesión Premium -->
+    <div id="login-screen" class="modal-overlay">
+        <div class="login-box">
+            <div class="brand"
+                style="text-align: center; margin-bottom: 20px; font-size: 2rem; -webkit-text-fill-color: initial; color: var(--sidebar-bg);">
+                ENTERPRISE</div>
+            <p style="color:var(--text-secondary); font-size: 0.9rem; text-align: center; margin-bottom: 30px;">Control
+                de Infraestructura Crítica</p>
+            <form id="login-form">
+                <div style="margin-bottom:20px;">
+                    <label style="font-size:0.7rem; font-weight:800; color:var(--text-secondary)">USUARIO</label>
+                    <input type="text" id="username" placeholder="operator" required
+                        style="width:100%; padding:15px; border-radius:12px; border:1px solid var(--border); margin-top:5px; background:#f8fafc;">
+                </div>
+                <div style="margin-bottom:30px;">
+                    <label style="font-size:0.7rem; font-weight:800; color:var(--text-secondary)">CONTRASEÑA</label>
+                    <input type="password" id="password" placeholder="••••••••" required
+                        style="width:100%; padding:15px; border-radius:12px; border:1px solid var(--border); margin-top:5px; background:#f8fafc;">
+                </div>
+                <div id="login-error"
+                    style="color:var(--accent-red); font-size:0.8rem; margin-bottom:15px; text-align:center; font-weight:600;">
+                </div>
+                <button type="submit" class="btn"
+                    style="background:var(--sidebar-bg); color:white; justify-content:center; border:none; padding:18px;">ENTRAR
+                    AL SISTEMA</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Navegación Lateral Industrial -->
+    <aside class="sidebar">
+        <div class="brand">ENTERPRISE <b>SYS</b></div>
+
+        <div class="card"
+            style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 20px; margin-bottom: 30px;">
+            <div id="status-pill" class="status-pill offline">DESCONECTADO</div>
+            <div
+                style="display:flex; justify-content:space-between; margin-top:15px; font-size:0.7rem; font-weight:700; color:#94a3b8;">
+                <span>RED MS</span>
+                <span id="cycle-time">0</span>
+            </div>
+        </div>
+
+        <div class="card-title">Panel de Mandos</div>
+        <button id="btn-up" class="btn btn-up-down">
+            <div class="btn-icon" style="color:var(--sidebar-bg)">↑</div> <span>PULSOR SUBIDA</span>
+        </button>
+        <button id="btn-down" class="btn btn-up-down">
+            <div class="btn-icon" style="color:var(--sidebar-bg)">↓</div> <span>PULSOR BAJADA</span>
+        </button>
+
+        <div id="chaos-panel" style="display:none; margin-top: 20px;">
+            <div class="card-title">Mantenimiento</div>
+            <button id="btn-fault-jam" class="btn danger"
+                style="background:rgba(239, 68, 68, 0.1); border-color: rgba(239,68,68,0.2);">
+                <div class="btn-icon">⚠</div> <span>FORZAR FALLO</span>
+            </button>
+            <button id="btn-fault-reset" class="btn"
+                style="background:rgba(255,255,255,0.05); color:white; border-color: rgba(255,255,255,0.1);">
+                <div class="btn-icon">⚙</div> <span>RESET PLC</span>
+            </button>
+        </div>
+
+        <button id="btn-logout" class="btn"
+            style="margin-top:auto; background:transparent; border:none; color:#94a3b8; font-size:0.7rem; justify-content:center;">CERRAR
+            SESIÓN DE SEGURIDAD</button>
+    </aside>
+
+    <!-- Área de Monitoreo Principal -->
+    <main class="main-content">
+        <header class="dashboard-header">
+            <div>
+                <h1 style="margin:0; font-size:1.8rem; font-weight:800;">Centro de Control</h1>
+                <div id="live-clock" style="color:var(--text-secondary); font-weight:600;">00:00:00</div>
+            </div>
+            <div style="display:flex; gap:20px;">
+                <div class="card" style="padding:15px 25px; display:flex; align-items:center; gap:10px;">
+                    <span style="font-size:0.7rem; font-weight:800; color:var(--text-secondary)">TEMP:</span>
+                    <b id="m-temp" style="font-size:1.2rem; color:var(--accent-red)">24.0°C</b>
+                </div>
+                <div class="card" style="padding:15px 25px; display:flex; align-items:center; gap:10px;">
+                    <span style="font-size:0.7rem; font-weight:800; color:var(--text-secondary)">MOTOR:</span>
+                    <b id="motor-label" style="font-size:1rem; color:var(--accent-blue)">IDLE</b>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- Digital Twin Section -->
+            <section>
+                <div class="card" style="min-height: 520px; display:flex; flex-direction:column;">
+                    <div class="card-title" style="display:flex; justify-content:space-between; width:100%;">
+                        <span>Building Digital Twin v2.5</span>
+                        <span style="color:var(--accent-green)">● LIVE DATA</span>
+                    </div>
+                    <div class="building-facade" style="flex:1; margin-top:20px;">
+                        <div id="lamp-l2" class="building-lamp" style="position:absolute; top:30px; left: 40px;">2</div>
+                        <div class="shaft">
+                            <div class="car" id="elevator-car">
+                                <div class="door left"></div>
+                                <div class="door right"></div>
+                                <div class="chicken">🍗</div>
+                                <div
+                                    style="position:absolute; top:0; width:100%; height:4px; background:var(--accent-blue); box-shadow:0 0 10px var(--accent-blue);">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="lamp-l1" class="building-lamp" style="position:absolute; bottom:30px; left: 40px;">1
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Telemetry Section -->
+            <section style="display:flex; flex-direction:column; gap:32px;">
+                <div class="card">
+                    <div class="card-title">PLC I/O Matrix</div>
+                    <div style="display:grid; grid-template-columns: 1fr; gap:10px;">
+                        <div id="tag-bp1" class="tag-chip"><span class="tag-name">Input: BP Subida</span><span
+                                class="tag-status">...</span></div>
+                        <div id="tag-bp2" class="tag-chip"><span class="tag-name">Input: BP Bajada</span><span
+                                class="tag-status">...</span></div>
+                        <div id="tag-ls1" class="tag-chip"><span class="tag-name">Input: LS Cocina</span><span
+                                class="tag-status">...</span></div>
+                        <div id="tag-ls2" class="tag-chip"><span class="tag-name">Input: LS Servicio</span><span
+                                class="tag-status">...</span></div>
+                    </div>
+                </div>
+
+                <div class="card" style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);">
+                    <div class="card-title" style="color:var(--accent-blue)">AI Analytics Engine</div>
+                    <div style="display:flex; align-items:center; gap:20px;">
+                        <div id="ai-health-circle"
+                            style="width:60px; height:60px; border-radius:50%; border:5px solid var(--accent-green); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.2rem;">
+                            100</div>
+                        <div>
+                            <div id="ai-insight-text" style="font-weight:700; font-size:0.9rem;">Analizando...</div>
+                            <div style="font-size:0.7rem; color:var(--text-secondary); margin-top:4px;">AVG TRAVEL TIME:
+                                <span id="ai-avg-time">0</span>s</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title" style="display:flex; justify-content:space-between; align-items:center;">
+                        Alarm Audit
+                        <button id="btn-open-logs"
+                            style="background:none; border:none; color:var(--accent-blue); font-weight:800; font-size:0.7rem; cursor:pointer;">HISTORY</button>
+                    </div>
+                    <div id="active-alarms-list" style="font-size:0.8rem; color:var(--text-secondary)">No alarm
+                        history...</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal Audit -->
+    <div id="logs-modal" class="modal-overlay" style="display:none;">
+        <div class="card"
+            style="width: 700px; height: 500px; display:flex; flex-direction:column; padding:0; overflow:hidden;">
+            <div
+                style="padding:24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee;">
+                <b style="font-size:1.2rem;">Audit Log History</b>
+                <button id="btn-close-logs"
+                    style="border:none; background:#f1f5f9; width:40px; height:40px; border-radius:50%; cursor:pointer; font-weight:800;">✕</button>
+            </div>
+            <div id="full-history-list" style="flex:1; overflow-y:auto; padding:24px;"></div>
+        </div>
+    </div>
+
+    <script src="app.js?v=2.5"></script>
+</body>
+
+</html>

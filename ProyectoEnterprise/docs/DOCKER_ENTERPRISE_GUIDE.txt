@@ -1,0 +1,80 @@
+=====================================================================
+    GUÍA MAESTRA DE OPERACIONES DOCKER - PROYECTO ENTERPRISE CES 2026
+=====================================================================
+
+Esta guía contiene los comandos vitales para administrar, depurar y optimizar
+tu plataforma de automatización industrial.
+
+---
+1. COMANDOS DE ARRANQUE Y ACTUALIZACIÓN
+---
+
+> Actualizar un solo servicio (Ej: Solo la Web o el PLC) sin apagar el resto:
+docker-compose up -d --build hmi-web
+
+> Reiniciar TODO el sistema desde cero (Limpieza profunda):
+docker-compose up -d --build --force-recreate
+
+> Detener el sistema manteniendo los datos:
+docker-compose stop
+
+> Borrar contenedores y redes (Limpieza total):
+docker-compose down
+
+---
+2. MONITOREO Y AUDITORÍA (MODO EXPERTO)
+---
+
+> Ver logs de todos los servicios en tiempo real:
+docker-compose logs -f
+
+> Ver logs de un servicio específico (Ej: Ver por qué falló el PLC):
+docker-compose logs -f plc-service
+
+> Ver estadísticas de consumo (CPU/RAM) de cada contenedor:
+docker stats
+
+---
+3. GESTIÓN DE VERSIONES Y "ROLLBACK" (VOLVER ATRÁS)
+---
+
+Docker no guarda versiones automáticamente a menos que las etiquetes. 
+Aquí el truco profesional:
+
+> Guardar la versión actual como "estable":
+docker tag proyectoenterprise-hmi-web:latest proyectoenterprise-hmi-web:v2.5_estable
+
+> Si la v2.6 falla y quieres volver a la estable, cambia el docker-compose.yml 
+  para que apunte a :v2.5_estable en lugar de 'build' o relanza con:
+docker-compose up -d hmi-web
+
+---
+4. INSPECCIÓN INTERNA (ENTRAR AL CONTENEDOR)
+---
+
+Si quieres ver los archivos DENTRO del servidor configurado (como si entraras por SSH):
+
+> Entrar a la terminal del API Gateway:
+docker-compose exec api-gateway sh
+
+---
+5. LIMPIEZA DE BASURA
+---
+
+A veces Docker guarda "fotos" viejas que ocupan mucho espacio en disco:
+
+> Borrar todas las imágenes, redes y caché que no se estén usando:
+docker system prune -f
+
+---
+6. FAQ: ¿POR QUÉ MI CAMBIO NO SE VE?
+---
+
+1. Cache de Docker: Usa --build siempre que modifiques un archivo .py, .js o .html.
+2. Cache de Navegador: El HMI es muy pesado en cache. Usa CTRL+F5.
+3. Puertos Ocupados: Si Windows da error de puerto, es que olvidaste hacer 
+   docker-compose down de una sesión anterior.
+
+=====================================================================
+🏢 "Infrastructure as Code" - Enterprise Project
+=====================================================================
