@@ -1,0 +1,91 @@
+services:
+  mqtt-broker:
+    image: eclipse-mosquitto:latest
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./infra/mosquitto/config:/mosquitto/config
+      - ./infra/mosquitto/data:/mosquitto/data
+      - ./infra/mosquitto/log:/mosquitto/log
+
+  plc-service:
+    build: ./services/plc-service
+    environment:
+      - MQTT_BROKER=mqtt-broker
+    depends_on:
+      - mqtt-broker
+
+  auth-service:
+    build: ./services/auth-service
+    ports:
+      - "8001:8001"
+
+  alarm-service:
+    build: ./services/alarm-service
+    environment:
+      - MQTT_BROKER=mqtt-broker
+    depends_on:
+      - mqtt-broker
+
+  historian-service:
+    build: ./services/historian-service
+    environment:
+      - MQTT_BROKER=mqtt-broker
+    depends_on:
+      - mqtt-broker
+
+  ai-service:
+    build: ./services/ai-service
+    environment:
+      - MQTT_BROKER=mqtt-broker
+      - HISTORIAN_URL=http://historian-service:8003
+    depends_on:
+      - mqtt-broker
+      - historian-service
+
+  api-gateway:
+    build: ./services/api-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      - PLC_URL=http://plc-service:8000
+      - AUTH_URL=http://auth-service:8001
+      - ALARM_URL=http://alarm-service:8002
+      - HISTORIAN_URL=http://historian-service:8003
+      - AI_URL=http://ai-service:8004
+      - MQTT_BROKER=mqtt-broker
+    depends_on:
+      - plc-service
+      - auth-service
+      - alarm-service
+      - historian-service
+      - ai-service
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./infra/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - plc-service
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./infra/grafana/provisioning:/etc/grafana/provisioning
+      - ./infra/grafana/dashboards:/var/lib/grafana/dashboards
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+    depends_on:
+      - prometheus
+
+  hmi-web:
+    build: ./hmi/web-app
+    ports:
+      - "8081:80"
+    depends_on:
+      - api-gateway

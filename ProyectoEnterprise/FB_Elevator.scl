@@ -1,0 +1,75 @@
+TYPE "struct_Elevator_Interface"
+VERSION : 0.1
+   STRUCT
+      BP1 : Bool;   // Boton subir
+      BP2 : Bool;   // Boton bajar
+      LS1 : Bool;   // Limite inferior (cocina)
+      LS2 : Bool;   // Limite superior (servicio)
+      MC1 : Bool;   // Contactor subida
+      MC2 : Bool;   // Contactor bajada
+      L1 : Bool;    // Lampara piso inferior
+      L2 : Bool;    // Lampara piso superior
+   END_STRUCT;
+END_TYPE
+
+DATA_BLOCK "DB_Elevador_Interface"
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+   VAR 
+      Interface : "struct_Elevator_Interface";
+   END_VAR
+BEGIN
+END_DATA_BLOCK
+
+FUNCTION_BLOCK "FB_Elevator_Enterprise"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      // Los inputs se leen directamente del DB para permitir control remoto IT/OT
+   END_VAR
+
+   VAR_OUTPUT 
+      // Los outputs se escriben directamente en el DB para visibilidad IT
+   END_VAR
+
+   VAR 
+      State_Up : Bool;
+      State_Down : Bool;
+   END_VAR
+
+BEGIN
+	// -------------------------
+	// INDICADORES DE POSICION
+	// -------------------------
+	"DB_Elevador_Interface".Interface.L1 := "DB_Elevador_Interface".Interface.LS1;
+	"DB_Elevador_Interface".Interface.L2 := "DB_Elevador_Interface".Interface.LS2;
+	
+	// -------------------------
+	// LOGICA DE SUBIDA
+	// -------------------------
+	IF "DB_Elevador_Interface".Interface.BP1 AND "DB_Elevador_Interface".Interface.LS1 AND NOT #State_Down THEN
+	    #State_Up := TRUE;
+	END_IF;
+	
+	IF "DB_Elevador_Interface".Interface.LS2 THEN
+	    #State_Up := FALSE;
+	END_IF;
+	
+	// -------------------------
+	// LOGICA DE BAJADA
+	// -------------------------
+	IF "DB_Elevador_Interface".Interface.BP2 AND "DB_Elevador_Interface".Interface.LS2 AND NOT #State_Up THEN
+	    #State_Down := TRUE;
+	END_IF;
+	
+	IF "DB_Elevador_Interface".Interface.LS1 THEN
+	    #State_Down := FALSE;
+	END_IF;
+	
+	// -------------------------
+	// SALIDAS A MOTOR
+	// -------------------------
+	"DB_Elevador_Interface".Interface.MC1 := #State_Up AND NOT "DB_Elevador_Interface".Interface.LS2;
+	"DB_Elevador_Interface".Interface.MC2 := #State_Down AND NOT "DB_Elevador_Interface".Interface.LS1;
+
+END_FUNCTION_BLOCK
